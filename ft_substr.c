@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 19:56:56 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/15 19:57:04 by mikabuto         ###   ########.fr       */
+/*   Created: 2021/10/15 21:07:10 by mikabuto          #+#    #+#             */
+/*   Updated: 2021/10/15 21:30:19 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*subs;
+	size_t	s_len;
 	size_t	i;
-	size_t	j;
-	size_t	needle_len;
 
-	j = 0;
-	needle_len = ft_strlen((char *)needle);
-	if (!(needle[0]))
-		return ((char *)haystack);
-	while (haystack[j] && j < len)
+	i = 0;
+	s_len = ft_strlen(s);
+	if (start > s_len)
 	{
-		i = 0;
-		while (needle[i] && (i + j) < len)
-		{	
-			if (needle[i] != haystack[j + i])
-				break ;
-			if (i == needle_len - 1)
-				return ((char *)&(haystack[j]));
-			i++;
-		}
-		j++;
+		subs = (char *)malloc(1);
+		subs[0] = '\0';
+		return (subs);
 	}
-	return (0);
+	if ((start + len) < s_len)
+		subs = (char *)malloc(len + 1);
+	else
+		subs = (char *)malloc(s_len - start + 1);
+	while (i < len && s[i])
+	{
+		subs[i] = s[start + i];
+		i++;
+	}
+	subs[i] = '\0';
+	return (subs);
 }

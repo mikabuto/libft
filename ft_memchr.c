@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:37:33 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/12 19:43:51 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:08:53 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*(const char *)s && n--)
+	while (n--)
 	{
-		if (*(const char *)s == c)
+		if (*(const char *)s == (char)c)
 			return ((void *)s);
 		s++;
 	}
-	if (c == '\0')
-		return ((void *)s);
-	return (0);
+	return (NULL);
 }

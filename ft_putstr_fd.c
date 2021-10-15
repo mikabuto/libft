@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 19:52:38 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/15 20:45:15 by mikabuto         ###   ########.fr       */
+/*   Created: 2021/10/15 23:29:07 by mikabuto          #+#    #+#             */
+/*   Updated: 2021/10/15 23:36:01 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	while (n && (*(const char *)s1 == *(const char *)s2))
+	while (*s)
 	{
-		++s1;
-		++s2;
-		--n;
+		write(fd, s, 1);
+		s++;
 	}
-	if (n == 0)
-		return (0);
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

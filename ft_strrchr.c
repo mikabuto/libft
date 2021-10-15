@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:32:07 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/12 19:03:48 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:40:48 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	*ft_strrchr(const char *s, int c)
 	if (c == '\0')
 		return ((char *)s);
 	s--;
-	while (*s && len--)
+	while (len--)
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			return ((char *)s);
 		s--;
 	}
