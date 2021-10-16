@@ -76,5 +76,6 @@ char	**ft_split(char const *s, char c)
 	while (++i < words_num)
 		words[i] = get_word(str, c, i);
 	words[i] = NULL;
+	free(str);
 	return (words);
 }

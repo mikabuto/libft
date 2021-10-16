@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_len(int n)
+#include <stdlib.h>
+
+int	ft_num_len(int n)
 {
 	int	len;
 
@@ -25,30 +27,37 @@ int	ft_len(int n)
 	return (len);
 }
 
+int	ft_power(int a)
+{
+	int	n;
+
+	n = 1;
+	while (a--)
+		n*=10;
+	return (n);
+}
+
 char	*ft_itoa(int n)
 {
 	int		len;
 	int		i;
 	char	*ret;
 
-	len = ft_len(n);
+	len = ft_num_len(n);
 	ret = (char *)malloc(len + 1);
 	i = -1;
+	if (n < 0)
+		i = 0;
 	while (++i < len)
 	{
 		if (n < 0)
 		{
-			ret[i++] = '-';
-			ret[i] = -n / ft_power(len - i);
+			ret[0] = '-';
+			ret[i] = -(n / ft_power(len - i - 1) % 10) + '0';
 		}
 		else
-			ret[i] = n / ft_power(len - i - 1);
+			ret[i] = (n / ft_power(len - i - 1) % 10) + '0';
 	}
 	ret[i] = '\0';
-}
-
-#include <stdio.h>
-int	main()
-{
-	printf("%d\n", ft_len(-0));
+	return (ret);
 }
