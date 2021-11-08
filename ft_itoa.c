@@ -6,11 +6,11 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 03:00:22 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/16 03:13:22 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:20:31 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_num_len(int n)
 {
@@ -33,7 +33,7 @@ int	ft_power(int a)
 
 	n = 1;
 	while (a--)
-		n*=10;
+		n *= 10;
 	return (n);
 }
 
@@ -45,6 +45,8 @@ char	*ft_itoa(int n)
 
 	len = ft_num_len(n);
 	ret = (char *)malloc(len + 1);
+	if (!ret)
+		return (NULL);
 	i = -1;
 	if (n < 0)
 		i = 0;

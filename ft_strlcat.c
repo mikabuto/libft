@@ -6,12 +6,10 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:26:56 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/15 19:57:13 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:22:47 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)

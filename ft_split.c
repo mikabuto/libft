@@ -6,14 +6,13 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 00:06:43 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/16 02:58:41 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 20:35:20 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-int	start_recording_index(int n, char *str, char c)
+int	start_recording_index(int n, char const *str, char c)
 {
 	int	j;
 	int	k;
@@ -31,7 +30,7 @@ int	start_recording_index(int n, char *str, char c)
 	return (j);
 }
 
-char	*get_word(char *str, char c, int n)
+char	*get_word(char const *str, char c, int n)
 {
 	int		i;
 	int		j;
@@ -45,6 +44,8 @@ char	*get_word(char *str, char c, int n)
 	while (str[j++] && str[j - 1] != c)
 		word_len++;
 	word = (char *)malloc(word_len + 1);
+	if (!word)
+		return (NULL);
 	i = -1;
 	j = j - word_len - 1;
 	while (++i < word_len)
@@ -53,16 +54,15 @@ char	*get_word(char *str, char c, int n)
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+int	ft_words_num(char const *str, char c)
 {
-	char	*str;
-	int		i;
-	int		words_num;
-	char	**words;
+	int	words_num;
+	int	i;
 
-	str = ft_strtrim(s, &c);
 	i = 0;
 	words_num = 0;
+	while (str[i] && str[i] == c)
+		i++;
 	while (str[i])
 	{
 		while (str[i] && str[i] != c)
@@ -71,11 +71,36 @@ char	**ft_split(char const *s, char c)
 			i++;
 		words_num++;
 	}
+	return (words_num);
+}
+
+char	**free_array(int i, char **words)
+{
+	while (i--)
+		free(words[i]);
+	free(words);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	int		words_num;
+	char	**words;
+
+	if (!s)
+		return (NULL);
+	words_num = ft_words_num(s, c);
 	words = (char **)malloc((words_num + 1) * sizeof(char *));
+	if (!words)
+		return (NULL);
 	i = -1;
 	while (++i < words_num)
-		words[i] = get_word(str, c, i);
+	{
+		words[i] = get_word(s, c, i);
+		if (!words[i])
+			return (free_array(i, words));
+	}
 	words[i] = NULL;
-	free(str);
 	return (words);
 }

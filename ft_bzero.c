@@ -6,11 +6,11 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:49:17 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/12 16:07:47 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:19:33 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

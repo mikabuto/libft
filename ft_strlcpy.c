@@ -6,11 +6,11 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:55:41 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/15 21:34:18 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:24:08 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

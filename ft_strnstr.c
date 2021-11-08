@@ -6,11 +6,10 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 19:56:56 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/15 19:57:04 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:23:45 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)

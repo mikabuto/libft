@@ -6,9 +6,11 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:26:17 by mikabuto          #+#    #+#             */
-/*   Updated: 2021/10/12 18:30:53 by mikabuto         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:25:57 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
